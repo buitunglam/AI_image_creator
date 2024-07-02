@@ -3,8 +3,8 @@ import { Document, Schema, model, models } from "mongoose";
 const UserSchema = new Schema({
     clerkId: { type: String, require: true, unique: true },
     email: { type: String, require: true, unique: true },
-    username: { type: String, require: true, unique: true },
-    photo: { type: String, require: true },
+    username: { type: String,  unique: true },
+    photo: { type: String },
     firstName: { type: String },
     lastName: { type: String },
     planId: { type: Number, default: 1 },
