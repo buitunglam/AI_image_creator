@@ -26,5 +26,6 @@ export const connectToDatabase = async () => {
             bufferCommands: false,
         });
     cached.conn = await cached.promise;
+    console.log("mongo db --->", cached.conn)
     return cached.conn;
 };
