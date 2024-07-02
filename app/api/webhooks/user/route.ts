@@ -10,8 +10,8 @@ export const GET = async () => {
             clerkId: id,
             email: "tunglam.xm94+7@gmail.com",
             username: "lambt_7",
-            firstName: null,
-            lastName: null,
+            firstName: "",
+            lastName: "",
             photo: "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18yaVBWeDFwS090bmRkb1pFRjROUFBCb3ZQZmgiLCJyaWQiOiJ1c2VyXzJpZm1RY2M2Yk1WY1hRdnZ6UzR0ZHNDd1FLQSJ9",
         };
 
