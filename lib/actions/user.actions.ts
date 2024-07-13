@@ -9,14 +9,14 @@ import { handleError } from "../utils";
 // CREATE
 export async function createUser(user: CreateUserParams) {
   try {
-    console.log("creating ----")
+    console.log("creating ----");
     const db = await connectToDatabase();
-    console.log("db ->>>", db)
 
     const newUser = await User.create(user);
 
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
+    console.log("createUser -----", error);
     handleError(error);
   }
 }
@@ -32,6 +32,7 @@ export async function getUserById(userId: string) {
 
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
+    console.log("getUserById -----", error);
     handleError(error);
   }
 }
@@ -46,9 +47,10 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
     });
 
     if (!updatedUser) throw new Error("User update failed");
-    
+
     return JSON.parse(JSON.stringify(updatedUser));
   } catch (error) {
+    console.log("updateUser -----", error);
     handleError(error);
   }
 }
@@ -71,6 +73,7 @@ export async function deleteUser(clerkId: string) {
 
     return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null;
   } catch (error) {
+    console.log("deleteUser -----", error);
     handleError(error);
   }
 }
@@ -82,14 +85,15 @@ export async function updateCredits(userId: string, creditFee: number) {
 
     const updatedUserCredits = await User.findOneAndUpdate(
       { _id: userId },
-      { $inc: { creditBalance: creditFee }},
+      { $inc: { creditBalance: creditFee } },
       { new: true }
-    )
+    );
 
-    if(!updatedUserCredits) throw new Error("User credits update failed");
+    if (!updatedUserCredits) throw new Error("User credits update failed");
 
     return JSON.parse(JSON.stringify(updatedUserCredits));
   } catch (error) {
+    console.log("updateCredits -----", error);
     handleError(error);
   }
 }
